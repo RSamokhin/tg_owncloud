@@ -1,0 +1,1 @@
+{"app":"PHP","message":"fopen(\/var\/www\/owncloud\/config\/config.php): failed to open stream: No such file or directory at \/var\/www\/owncloud\/lib\/private\/config.php#141","level":3,"time":"2014-12-12T12:11:45+00:00"}
