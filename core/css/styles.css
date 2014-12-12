@@ -915,3 +915,39 @@ fieldset.warning legend + p, fieldset.update legend + p {
 	width: device-width;
 }
 
+
+input#submit.login{
+	width:45% !important;
+	font-size: 15px !important;
+height: 43px !important;
+}
+.register-button{
+	margin-right: 7px !important;
+	padding: 10px 20px !important;
+	float: left !important;
+	border: none !important;
+	border-radius: 5px;
+	background-color: #35537a !important;
+	color: #ddd !important;
+	box-sizing: border-box;
+	text-align: center;
+	-webkit-appearance: push-button;
+	-webkit-user-select: none;
+	white-space: pre;
+	height: 43px;
+	width: 45%!important;
+	font-size: 13px !important;
+	font-weight: bold;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	background: #ccc;
+	cursor: pointer !important;
+}
+.register-button:hover {
+	color:#FFF !important;
+	background-color:#294E7E !important;
+}

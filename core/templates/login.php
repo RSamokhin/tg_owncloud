@@ -44,7 +44,7 @@
 		<?php endif; ?>
 		
 		
-		<!--<input class="register-Button" value="Регистрация" disabled="disabled"/>-->
+		<input class="register-button" value="Регистрация" disabled="disabled"/>
 		
 		
 		<input type="hidden" name="timezone-offset" id="timezone-offset"/>
