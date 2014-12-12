@@ -42,10 +42,11 @@
 			<?php p($l->t('Forgot your password? Reset it!')); ?>
 		</a>
 		<?php endif; ?>
-		<?php if ($_['rememberLoginAllowed'] === true) : ?>
-		<input type="checkbox" name="remember_login" value="1" id="remember_login" />
-		<label for="remember_login"><?php p($l->t('remember')); ?></label>
-		<?php endif; ?>
+		
+		
+		<!--<input class="register-Button" value="Регистрация" disabled="disabled"/>-->
+		
+		
 		<input type="hidden" name="timezone-offset" id="timezone-offset"/>
 		<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>" />
 		<input type="submit" id="submit" class="login primary" value="<?php p($l->t('Log in')); ?>" disabled="disabled"/>
