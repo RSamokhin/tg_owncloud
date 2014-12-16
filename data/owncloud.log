@@ -1,1 +1,8 @@
 {"app":"PHP","message":"fopen(\/var\/www\/owncloud\/config\/config.php): failed to open stream: No such file or directory at \/var\/www\/owncloud\/lib\/private\/config.php#141","level":3,"time":"2014-12-12T12:11:45+00:00"}
+{"app":"core","message":"Login failed: 'admin' (Remote IP: '192.168.1.33', X-Forwarded-For: '')","level":2,"time":"2014-12-15T16:07:07+00:00"}
+{"app":"core","message":"Login failed: 'admin' (Remote IP: '192.168.1.33', X-Forwarded-For: '')","level":2,"time":"2014-12-15T16:07:12+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.33', X-Forwarded-For: '')","level":2,"time":"2014-12-15T16:11:18+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.100', X-Forwarded-For: '')","level":2,"time":"2014-12-15T20:32:15+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.100', X-Forwarded-For: '')","level":2,"time":"2014-12-15T20:32:22+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.69', X-Forwarded-For: '')","level":2,"time":"2014-12-15T20:32:34+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.69', X-Forwarded-For: '')","level":2,"time":"2014-12-15T20:32:49+00:00"}
