@@ -1,13 +1,18 @@
-
 var usr = process.argv[2];
 var pwd = process.argv[3];
 var chk = process.argv[4];
 
 var fdata = Math.random();
 fs = require('fs')
-fs.readFile('config/node/tmpdir/'+usr, 'utf8', function (err,data) {
+fs.readFile('tmpdir/'+usr, 'utf8', function (err,data) {
   if (err) {
-    return console.log(err);
+	var rdata = {
+						"data":{
+								"message":"Системная ошибка чтения из файла, сообщите администратору"
+						},
+						"status":"error"
+					}
+    return console.log(rdata);
   }
 	fdata=data.trim();
 	if (fdata==chk){
@@ -37,7 +42,7 @@ fs.readFile('config/node/tmpdir/'+usr, 'utf8', function (err,data) {
 							'requesttoken': token
 						}
 					}, function(err, httpResponse, body){
-						console.log(body);
+						console.log(JSON.parse(body));
 					});
 				});
 			});
@@ -49,7 +54,7 @@ fs.readFile('config/node/tmpdir/'+usr, 'utf8', function (err,data) {
 						},
 						"status":"error"
 					}
-		console.log(rdata.data)
+		console.log(rdata)
 	}
 });
 
