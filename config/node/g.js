@@ -7,8 +7,12 @@ try{
 }finally{
 	try{
 		var newId = makeid();
-		fs.writeFile('tmpdir/'+usr, newId);
-		console.log({"data":{"message":"The ID was created","file":usr,"newId":newId},"status":"success"});
+		var stream = fs.createWriteStream('tmpdir/'+usr);
+		stream.once('open', function(fd) {
+		  stream.write(newId);
+		  stream.end();
+		});
+		console.log({"data":{"message":"ID был создан","file":usr,"newId":newId},"status":"success"});
 	}catch(e){
 		console.log({"data":{"message":e},"status":"error"})
 	}
