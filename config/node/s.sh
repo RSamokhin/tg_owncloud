@@ -1,5 +1,3 @@
-
-
 ( echo open mail.telecomguard.ru  25
 sleep 1
 echo helo mail.telecomguard.ru

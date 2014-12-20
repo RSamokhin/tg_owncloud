@@ -3,12 +3,12 @@ function run_cmd(cmd, args, callBack ) {
     var child = spawn(cmd, args);
     var resp = "";
 
-    child.stdout.on('data', function (buffer) { resp += buffer.toString() });
-    child.stdout.on('end', function() { callBack (resp) });
+    child.stdout.on('data', function (buffer) { resp += buffer.toString(); });
+    child.stdout.on('end', function() { callBack (resp); });
 } // ()
 
 run_cmd( "./s.sh", [
                            "poshliemail@googlemail.com",
                            "rsamokhin@telecomguard.ru",
                            "OwnCloud Registration confirmation"
-                    ], function(text) { console.log (text) });
+                    ], function(text) { console.log (text); });

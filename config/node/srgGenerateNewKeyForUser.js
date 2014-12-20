@@ -1,3 +1,7 @@
+/* 
+ * Generates new token for user registration or password restore
+ * Example: nodejs ./srgGenerateNewKeyForUser.js rsamokhin@telecomguard.ru
+ */
 var usr = process.argv[2];
 var fs = require('fs');
 try{
@@ -14,7 +18,7 @@ try{
 		});
 		console.log({"data":{"message":"ID был создан","file":usr,"newId":newId},"status":"success"});
 	}catch(e){
-		console.log({"data":{"message":e},"status":"error"})
+		console.log({"data":{"message":e},"status":"error"});
 	}
 }
 function makeid(){
