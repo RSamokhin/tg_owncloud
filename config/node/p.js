@@ -3,7 +3,7 @@ var pwd = process.argv[3];
 var chk = process.argv[4];
 
 var fdata = Math.random();
-fs = require('fs')
+fs = require('fs');
 fs.readFile('tmpdir/'+usr, 'utf8', function (err,data) {
   if (err) {
 	var rdata = {
@@ -11,11 +11,11 @@ fs.readFile('tmpdir/'+usr, 'utf8', function (err,data) {
 								"message":"Системная ошибка чтения из файла, сообщите администратору"
 						},
 						"status":"error"
-					}
+					};
     return console.log(rdata);
   }
 	fdata=data.trim();
-	if (fdata==chk){
+	if (fdata===chk){
 		var request = require('request');
 		var j = request.jar();
 		var request = request.defaults({jar:j});
@@ -53,8 +53,8 @@ fs.readFile('tmpdir/'+usr, 'utf8', function (err,data) {
 								"message":"Некорректный код подтверждения, запросите код повторно"
 						},
 						"status":"error"
-					}
-		console.log(rdata)
+					};
+		console.log(rdata);
 	}
 });
 
