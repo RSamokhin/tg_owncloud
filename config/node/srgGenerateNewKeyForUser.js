@@ -1,25 +1,46 @@
 /* 
- * Generates new token for user registration or password restore
+ * Generates new token for user registration or password restore.
+ * Check for allowed domain added
  * Example: nodejs ./srgGenerateNewKeyForUser.js rsamokhin@telecomguard.ru
  */
+var data = require('./srgConfigData.js');
 var usr = process.argv[2];
-var fs = require('fs');
-try{
-	fs.unlinkSync('tmpdir/'+usr);
-}catch(e){
+var allowedEmailDomain = false;
+for(i = 0 ; i < cData.data.allowedEmailDomains.length;i++){
+    if (usr.substring(usr.length-cData.data.allowedEmailDomains[i].length)===cData.data.allowedEmailDomains[i]){
+        allowedEmailDomain=true;
+        break;
+    } 
+}
+if (allowedEmailDomain){
+    var fs = require('fs');
+    try{
+            fs.unlinkSync('tmpdir/'+usr);
+    }catch(e){
 
-}finally{
-	try{
-		var newId = makeid();
-		var stream = fs.createWriteStream('tmpdir/'+usr);
-		stream.once('open', function(fd) {
-		  stream.write(newId);
-		  stream.end();
-		});
-		console.log({"data":{"message":"ID был создан","file":usr,"newId":newId},"status":"success"});
-	}catch(e){
-		console.log({"data":{"message":e},"status":"error"});
-	}
+    }finally{
+
+            try{
+                    var newId = makeid();
+                    var stream = fs.createWriteStream('tmpdir/'+usr);
+                    stream.once('open', function(fd) {
+                      stream.write(newId);
+                      stream.end();
+                    });
+                    console.log({"data":{"message":"ID был создан","file":usr,"newId":newId},"status":"success"});
+            }catch(e){
+                    console.log({"data":{"message":e},"status":"error"});
+            }
+    }
+}else{
+    var rdata = {
+                    "data":{
+                    "message":"User address must be  the same, as email from allowed domain ( "+ cData.data.allowedEmailDomains.toString() + " )"
+                },
+            "status":"error"
+        };
+    console.log(rdata);
+    
 }
 function makeid(){
     var text = "";
