@@ -1,6 +1,6 @@
 /* 
  * Creates new OwnClud user or returns the error message
- * Example: nodejs srgCreateNewUser.js rsamokhin@telecomguard.ru Qwerty12345 cyXm6Ex8M9
+ * Example: nodejs srgChangeUsersPwd.js rsamokhin@telecomguard.ru Qwerty12345 cyXm6Ex8M9
  */
 var data = require('./srgConfigData.js');
 var usr = process.argv[2];
