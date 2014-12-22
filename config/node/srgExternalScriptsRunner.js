@@ -2,6 +2,7 @@
  *Script for running external bash bommands
  *Example: nodejs srgExternalScriptsRunner.js 'ls' '["/"]'
 */
+/*
 try{
     var cmd = process.argv[2];
     var params = JSON.parse(process.argv[3]);
@@ -9,7 +10,7 @@ try{
 }catch(e){
     console.log('Incorrect input params');
 }
-
+*/
 function run_cmd(cmd, args, callBack ) {
     var spawn = require('child_process').spawn;
     var child = spawn(cmd, args);
