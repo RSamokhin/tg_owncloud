@@ -3,7 +3,7 @@
  * Check for allowed domain added
  * Example: nodejs ./srgGenerateNewKeyForUser.js rsamokhin@telecomguard.ru
  */
-var data = require('./srgConfigData.js');
+var data = require('/var/www/owncloud/config/node/srgConfigData.js');
 var usr = process.argv[2];
 var allowedEmailDomain = false;
 for(i = 0 ; i < cData.data.allowedEmailDomains.length;i++){
@@ -15,19 +15,22 @@ for(i = 0 ; i < cData.data.allowedEmailDomains.length;i++){
 if (allowedEmailDomain){
     var fs = require('fs');
     try{
-            fs.unlinkSync('tmpdir/'+usr);
+            fs.unlinkSync('/var/www/owncloud/config/node/tmpdir/'+usr);
     }catch(e){
 
     }finally{
 
             try{
                     var newId = makeid();
-                    var stream = fs.createWriteStream('tmpdir/'+usr);
-                    stream.once('open', function(fd) {
+                    /*fs = require('fs');
+                    var stream = fs.createWriteStream('/var/www/owncloud/config/node/tmpdir/'+usr);
+                    stream.once('open', function(fd){
                       stream.write(newId);
                       stream.end();
-                    });
-                    console.log({"data":{"message":"ID был создан","file":usr,"newId":newId},"status":"success"});
+                    });*/
+                    fs = require('fs');
+                    fs.writeFileSync('/var/www/owncloud/config/node/tmpdir/'+usr, newId);
+                    console.log({"data":{"message":"Token was successfully created","file":usr,"newId":newId},"status":"success"});
             }catch(e){
                     console.log({"data":{"message":e},"status":"error"});
             }
