@@ -6,3 +6,4 @@
 {"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.100', X-Forwarded-For: '')","level":2,"time":"2014-12-15T20:32:22+00:00"}
 {"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.69', X-Forwarded-For: '')","level":2,"time":"2014-12-15T20:32:34+00:00"}
 {"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.69', X-Forwarded-For: '')","level":2,"time":"2014-12-15T20:32:49+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.61', X-Forwarded-For: '')","level":2,"time":"2014-12-22T10:15:06+00:00"}
