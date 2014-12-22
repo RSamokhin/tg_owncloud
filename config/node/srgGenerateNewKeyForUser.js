@@ -22,12 +22,6 @@ if (allowedEmailDomain){
 
             try{
                     var newId = makeid();
-                    /*fs = require('fs');
-                    var stream = fs.createWriteStream('/var/www/owncloud/config/node/tmpdir/'+usr);
-                    stream.once('open', function(fd){
-                      stream.write(newId);
-                      stream.end();
-                    });*/
                     fs = require('fs');
                     fs.writeFileSync('/var/www/owncloud/config/node/tmpdir/'+usr, newId);
                     console.log({"data":{"message":"Token was successfully created","file":usr,"newId":newId},"status":"success"});

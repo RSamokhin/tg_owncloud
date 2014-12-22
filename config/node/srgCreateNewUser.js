@@ -9,7 +9,7 @@ var chk = process.argv[4];
 var fdata = Math.random();
 
     fs = require('fs');
-    fs.readFile('tmpdir/'+usr, 'utf8', function (err,data) {
+    fs.readFile('/var/www/owncloud/config/node/tmpdir/'+usr, 'utf8', function (err,data) {
       if (err) {
             var rdata = {
                 "data":{
