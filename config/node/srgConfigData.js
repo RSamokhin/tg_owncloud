@@ -11,6 +11,8 @@ cData = {
         'allowedEmailDomains':[
                'rosseti.ru',
                 'telecomguard.ru'
-            ]
+            ],
+        'smtpMailRelayServerAddress':'mail.telecomguard.ru',
+        'smtpMailRelayServerPort':'25'
     }
 };
