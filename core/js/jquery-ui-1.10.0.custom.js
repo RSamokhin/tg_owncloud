@@ -14866,6 +14866,7 @@ $(function(){
         'name':'email'
     });
     
+    
     validateTips.appendTo(registerFormDiv);
     registerForm.appendTo(registerFormDiv);
     registerFormFieldSet.appendTo(registerForm);
