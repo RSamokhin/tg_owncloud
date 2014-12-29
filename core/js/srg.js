@@ -1,7 +1,5 @@
 $(function(){
-    registerFormDiv = $('<div/>').addClass('registerFormDiv').attr({
-        'title':'Register new user'
-    });
+    registerFormDiv = $('<div/>').addClass('registerFormDiv');
     validateTips = $('<p/>').addClass('validateTips').html('All form fields are required.').css({
          'border': '1px solid transparent',
          'padding': '0.3em' 
@@ -68,13 +66,36 @@ $(function(){
     registerFoormPwdLabel.appendTo(registerFoormPwdP);
     registerFoormPwdInput.appendTo(registerFoormPwdP);
     
-    $('.register-button').parent().bind('click',function(){
+    $('.recoverPassword').parent().bind('click',function(){
+        registerFormDiv.attr({
+            'title':'Recover the password'
+        });
+        
         registerFormDiv.dialog({
             width: 400,
             modal: true,
             resizable:false,
             buttons: {
-              'Register': register,
+              'OK': recover,
+              Cancel: function() {
+                registerFormDiv.dialog( "close" );
+              }
+            }
+        });
+        $(".ui-dialog-buttonpane button").eq(0).button("disable").removeClass("ui-state-default");
+    });
+    
+    
+    $('.register-button').parent().bind('click',function(){
+        registerFormDiv.attr({
+            'title':'Register new user'
+        });
+        registerFormDiv.dialog({
+            width: 400,
+            modal: true,
+            resizable:false,
+            buttons: {
+              'OK': register,
               Cancel: function() {
                 registerFormDiv.dialog( "close" );
               }
@@ -186,5 +207,45 @@ function checkRegexp( o, regexp, n ) {
         return true;
       }
 }
-
+function recover(){
+    token = $( ".registerFoormTokenInput" );
+    email = $( ".registerFoormEmailInput" );
+    password = $( ".registerFoormPwdInput" );
+    allFields = $( [] ).add( token ).add( email ).add( password );
+    tips = $( ".validateTips" );
+    var valid = true;
+    allFields.removeClass( "ui-state-error" );
+    valid = valid && checkLength( token, "Token", 5, 20 );
+    valid = valid && checkLength( password, "Password", 5, 16 );
+    valid = valid && checkRegexp( token, /^([0-9a-zA-Z])+$/, "Token must be requested and sent to your email" );
+    valid = valid && checkRegexp( email, emailRegex, "eg. ui@email.com" );
+    valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+    if ( valid ) {
+        url = 'srgScriptRequster.php';
+            data = {
+                'sname':'srgChangeUsersPwd',
+                'sdata':email.val()+','+password.val()+','+token.val(),
+                'random':Math.random()
+            };
+            $.ajax({
+                url:url,
+                data:data,
+                async:false,
+                success: function (nrez) {
+                        eval('obj = '+ nrez);
+                        if (obj.status==='success'){
+                            allFields.removeClass( "ui-state-error" );
+                            $( ".validateTips" ).effect('highlight',10000);
+                            $('.validateTips').text('Password was succesfully changed. Close the form and continue');
+                            $( ".registerFoormTokenInput" ).attr('disabled','disabled');
+                            $( ".registerFoormPwdInput" ).attr('disabled','disabled');
+                        }else{
+                            $( ".validateTips" ).effect('highlight',10000);
+                            $('.validateTips').text(obj.data.message);
+                        }
+                }
+            });
+    }
+    return valid;
+} 
 emailRegex = /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/;
