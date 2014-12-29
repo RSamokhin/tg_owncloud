@@ -70,7 +70,6 @@ $(function(){
     
     $('.register-button').parent().bind('click',function(){
         registerFormDiv.dialog({
-            height: 340,
             width: 400,
             modal: true,
             resizable:false,
@@ -93,21 +92,28 @@ $(function(){
             url = 'srgScriptRequster.php';
             data = {
                 'sname':'srgGenerateNewKeyForUser',
-                'sdata':email.val()
+                'sdata':email.val(),
+                'random':Math.random()
             };
             $.ajax({
                 url:url,
                 data:data,
+                async:false,
                 success: function (result) {
-                        alert( result );
+                        eval('obj = '+ result);
+                        if (obj.status==='success'){
+                            allFields.removeClass( "ui-state-error" );
+                            $( ".registerFoormTokenInput" ).removeAttr('disabled').effect('highlight',10000);
+                            $( ".registerFoormPwdInput" ).removeAttr('disabled').effect('highlight',10000);
+                            $('.validateTips').text(obj.data.message);
+                            $(".ui-dialog-buttonpane button").eq(0).button("enable").addClass("ui-state-default");
+                            email.attr('readonly','readonly');
+                        }else{
+                            $( ".validateTips" ).removeAttr('disabled').effect('highlight',10000);
+                            $('.validateTips').text(obj.data.message);
+                        }
                 }
             });
-            allFields.removeClass( "ui-state-error" );
-            $( ".registerFoormTokenInput" ).removeAttr('disabled').effect('highlight',10000);
-            $( ".registerFoormPwdInput" ).removeAttr('disabled').effect('highlight',10000);
-            $('.validateTips').text('Enter token from e-mail');
-            $(".ui-dialog-buttonpane button").eq(0).button("enable").addClass("ui-state-default");
-            email.attr('readonly','readonly');
         }
         return valid;
     });
@@ -122,11 +128,34 @@ function register(){
     allFields.removeClass( "ui-state-error" );
     valid = valid && checkLength( token, "Token", 5, 20 );
     valid = valid && checkLength( password, "Password", 5, 16 );
-    valid = valid && checkRegexp( token, /^[a-z]([0-9a-z_\s])+$/i, "Token must be requested and sent to your email" );
+    valid = valid && checkRegexp( token, /^([0-9a-zA-Z])+$/, "Token must be requested and sent to your email" );
     valid = valid && checkRegexp( email, emailRegex, "eg. ui@email.com" );
     valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
     if ( valid ) {
-        alert(this);
+        url = 'srgScriptRequster.php';
+            data = {
+                'sname':'srgCreateNewUser',
+                'sdata':email.val()+','+password.val()+','+token.val(),
+                'random':Math.random()
+            };
+            $.ajax({
+                url:url,
+                data:data,
+                async:false,
+                success: function (nrez) {
+                        eval('obj = '+ nrez);
+                        if (obj.status==='success'){
+                            allFields.removeClass( "ui-state-error" );
+                            $( ".validateTips" ).effect('highlight',10000);
+                            $('.validateTips').text('User was successfuly created. Close the form and continue');
+                            $( ".registerFoormTokenInput" ).attr('disabled','disabled');
+                            $( ".registerFoormPwdInput" ).attr('disabled','disabled');
+                        }else{
+                            $( ".validateTips" ).effect('highlight',10000);
+                            $('.validateTips').text(obj.data.message);
+                        }
+                }
+            });
     }
     return valid;
 } 
