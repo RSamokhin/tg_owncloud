@@ -90,11 +90,27 @@ $(function(){
         var valid = true;
         valid = valid && checkRegexp( email, emailRegex, "eg. ui@email.com" );
         if ( valid ) {
+            url = 'srgScriptRequster.php';
+            data = {
+                'sname':'srgGenerateNewKeyForUser',
+                'sdata':email.val()
+            };
+            $.ajax({
+                url:url,
+                data:data,
+                success: function (result) {
+                        alert( result );
+                }
+            });
             allFields.removeClass( "ui-state-error" );
+            $( ".registerFoormTokenInput" ).removeAttr('disabled').effect('highlight',10000);
+            $( ".registerFoormPwdInput" ).removeAttr('disabled').effect('highlight',10000);
+            $('.validateTips').text('Enter token from e-mail');
+            $(".ui-dialog-buttonpane button").eq(0).button("enable").addClass("ui-state-default");
+            email.attr('readonly','readonly');
         }
-        return valid
+        return valid;
     });
-    emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 });
 function register(){
     token = $( ".registerFoormTokenInput" );
@@ -141,3 +157,5 @@ function checkRegexp( o, regexp, n ) {
         return true;
       }
 }
+
+emailRegex = /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/;
