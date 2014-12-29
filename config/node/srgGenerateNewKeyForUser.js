@@ -31,29 +31,10 @@ if (allowedEmailDomain){
 
                     child = exec('/var/www/owncloud/config/node/srgSendMailBash.sh '+cData.data.smtpMailRelayServerAddress+' '+cData.data.smtpMailRelayServerPort+' '+cData.data.mailSender+' '+usr+' "'+cData.data.mailConfirmationSubject+'" "'+cData.data.mailConfirmationBody+newId+'"',
                       function (error, stdout, stderr) {
-                        //console.log('stdout: ' + stdout);
-                        //console.log('stderr: ' + stderr);
                         console.log({"data":{"message":"Token was successfully created","file":usr/*,"newId":newId*/},"status":"success"});
                         if (error !== null) {
-                          //console.log('exec error: ' + error);
                         }
                     });
-                    /*var params = [
-                            cData.data.smtpMailRelayServerAddress,
-                            cData.data.smtpMailRelayServerPort,
-                            cData.data.mailSender,
-                            usr,
-                            cData.data.mailConfirmationSubject,
-                            cData.data.mailConfirmationBody+newId
-                        ];
-                    console.log(params);
-                    try{
-                        var cmd = './srgSendMailBash.sh';
-                        
-                        run_cmd( cmd, params, function(text) { console.log(text); });
-                    }catch(e){
-                        console.log('Incorrect input params');
-                    }*/
             }catch(e){
                     console.log({"data":{"message":e},"status":"error"});
             }
@@ -65,7 +46,7 @@ if (allowedEmailDomain){
                 },
             "status":"error"
         };
-    console.log(rdata);
+    console.log(JSON.stringify(rdata));
     
 }
 function makeid(){
