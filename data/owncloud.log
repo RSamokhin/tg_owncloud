@@ -50,3 +50,13 @@
 {"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.70', X-Forwarded-For: '')","level":2,"time":"2014-12-22T17:02:54+00:00"}
 {"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.70', X-Forwarded-For: '')","level":2,"time":"2014-12-22T17:03:21+00:00"}
 {"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.70', X-Forwarded-For: '')","level":2,"time":"2014-12-22T17:04:02+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin\u044c\u0442' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:02:02+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin\u044c\u0442' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:02:15+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin\u044c\u0442' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:03:24+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:03:34+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:03:39+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:05:39+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:06:03+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:06:09+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:06:21+00:00"}
+{"app":"core","message":"Login failed: 'rsamokhin' (Remote IP: '192.168.1.75', X-Forwarded-For: '')","level":2,"time":"2014-12-29T19:08:00+00:00"}

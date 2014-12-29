@@ -38,9 +38,9 @@
 		</p>
 
 		<?php if (isset($_['invalidpassword']) && ($_['invalidpassword'])): ?>
-		<a id="lost-password" class="warning" href="">
+		<span id="recoverPassword" class="recoverPassword" style="margin: 20px;color: wheat;cursor: pointer;" >
 			<?php p($l->t('Forgot your password? Reset it!')); ?>
-		</a>
+		</span>
 		<?php endif; ?>
 		
                 
