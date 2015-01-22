@@ -144,7 +144,6 @@ $(function(){
     });
 });
 function register(){
-    debugger;
     token = $( ".registerFoormTokenInput" );
     email = $( ".registerFoormEmailInput" );
     password = $( ".registerFoormPwdInput" );
@@ -213,7 +212,6 @@ function checkRegexp( o, regexp, n ) {
       }
 }
 function recover(){
-    debugger;
     token = $( ".registerFoormTokenInput" );
     email = $( ".registerFoormEmailInput" );
     password = $( ".registerFoormPwdInput" );
