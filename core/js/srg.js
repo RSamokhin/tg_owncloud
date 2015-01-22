@@ -66,7 +66,7 @@ $(function(){
     registerFoormPwdLabel.appendTo(registerFoormPwdP);
     registerFoormPwdInput.appendTo(registerFoormPwdP);
     
-    $('.recoverPassword').parent().bind('click',function(){
+    $('.recoverPassword').bind('click',function(){
         registerFormDiv.attr({
             'title':'Recover the password'
         });
