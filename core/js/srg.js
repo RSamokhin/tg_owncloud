@@ -23,7 +23,7 @@ $(function(){
         }).css({
             'float': 'right'
         });
-        registerFoormRequestTokenButton = $('<button/>').html('Request token');
+        registerFoormRequestTokenButton = $('<button/>').html('Request token').addClass('registerFoormRequestTokenButton');
         registerFoormTokenP =$('<p/>').addClass('registerFoormTokenP registerFormP');
         registerFoormTokenLabel = $('<label/>').addClass('registerFoormTokenLabel').attr({
             'for':'Token'
@@ -107,7 +107,7 @@ $(function(){
         });
         $(".ui-dialog-buttonpane button").eq(0).button("disable").removeClass("ui-state-default");
     });
-    registerFoormRequestTokenButton.bind('click',function(){
+    $(document).on('click','.registerFoormRequestTokenButton',function(){
         email = $( ".registerFoormEmailInput" );
         allFields = $( [] ).add( email );
         tips = $( ".validateTips" );
@@ -144,6 +144,7 @@ $(function(){
     });
 });
 function register(){
+    debugger;
     token = $( ".registerFoormTokenInput" );
     email = $( ".registerFoormEmailInput" );
     password = $( ".registerFoormPwdInput" );
@@ -212,6 +213,7 @@ function checkRegexp( o, regexp, n ) {
       }
 }
 function recover(){
+    debugger;
     token = $( ".registerFoormTokenInput" );
     email = $( ".registerFoormEmailInput" );
     password = $( ".registerFoormPwdInput" );
