@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af44eeb9-9399-4842-a2e4-4535a00eebaa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/js/srg.js" afterPath="$PROJECT_DIR$/core/js/srg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OWNCLOUD.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -311,12 +311,12 @@
       <option name="number" value="Default" />
       <updated>1421920281030</updated>
       <workItem from="1421920281582" duration="1147000" />
-      <workItem from="1421921974637" duration="667000" />
+      <workItem from="1421921974637" duration="751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1814000" />
+    <option name="totallyTimeSpent" value="1898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="6" />
