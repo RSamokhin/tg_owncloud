@@ -15,6 +15,6 @@ $CONFIG = array (
   'dbhost' => 'localhost',
   'dbtableprefix' => 'oc_',
   'dbuser' => 'owncloud',
-  'dbpassword' => 'Warpten13',
+  'dbpassword' => 'Qsx159357',
   'installed' => true,
 );
