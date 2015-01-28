@@ -17,3 +17,10 @@ Owncloud customised cloud with registration
 14. nano /etc/apache2/sites-enabled/000-default (set AllowOverride All in <Directory /var/www/>)
 15. service apache2 restart 
 16. nano /etc/php5/apache2/php.ini (mysql.default_socket -> /var/run/mysqld/mysqld.sock;mysql.cache_size -> 4000;upload_max_filesize -> 1024M;post_max_size -> 1024M;memory_limit = 1024M  )
+17. cd /var/www/ 
+18. wget https://download.owncloud.org/community/owncloud-7.0.4.tar.bz2
+19. tar -xvf owncloud-7.0.4.tar.bz2
+20. chown -R www-data:www-data /var/www/owncloud/ 
+21. rm owncloud-7.0.4.tar.bz2
+22. nano index.html (<html><head><meta http-equiv="refresh" content="0; url=owncloud" /></head></html>)
+23. on http://ip/owncloud set admin user and db connection settings
