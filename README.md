@@ -24,3 +24,11 @@ Owncloud customised cloud with registration
 21. rm owncloud-7.0.4.tar.bz2
 22. nano index.html (<html><head><meta http-equiv="refresh" content="0; url=owncloud" /></head></html>)
 23. on http://ip/owncloud set admin user and db connection settings
+24. apt-get install git
+25. curl -sL https://deb.nodesourse.com/setup | bash -
+26. apt-get install nodejs
+27. apt-get install build-essential
+28. cd /var/www/
+29. tar -zcvf oc_backup.tar.gz owncloud/
+30. git clone *this repo* tmp
+
