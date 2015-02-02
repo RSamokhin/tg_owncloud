@@ -31,4 +31,7 @@ Owncloud customised cloud with registration
 28. cd /var/www/
 29. tar -zcvf oc_backup.tar.gz owncloud/
 30. git clone *this repo* tmp
+31. cp -r -i -u tmp/* owncloud/
+32. chmod -R 777 owncloud/config/node
+33. npm install request -g
 
