@@ -7,7 +7,7 @@ cData = {
         'mailConfirmationSubject':'OwnCloud TOKEN request Confirmation',
         'mailConfirmationBody':'Your new confirmation token: ',
         'mailSenderScript':'./s.sh',
-        'ownCloudAdminUser':'rsamokhin',
+        'ownCloudAdminUser':'administrator',
         'ownCloudAdminPassword':'Qsx159357',
         'allowedEmailDomains':[
                '@rosseti.ru',
