@@ -10,7 +10,7 @@ var fdata = Math.random();
 
     fs = require('fs');
     fs.readFile('/var/www/owncloud/config/node/tmpdir/'+usr, 'utf8', function (err,data) {
-      if (err) {
+        if (err) {
             var rdata = {
                 "data":{
                     "message":"Try to request the confimation code once more"
@@ -21,38 +21,43 @@ var fdata = Math.random();
       }
             fdata=data.trim();
             if (fdata===chk){
+                try {
                     var request = require('request');
                     var j = request.jar();
-                    var request = request.defaults({jar:j});
+                    var request = request.defaults({jar: j});
                     request('http://localhost/owncloud/index.php', function (error, response, body) {
-                        console.log(1);
                         if (error && response.statusCode !== 200)
-                                    return;
-                            var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
-                            request.post({url:'http://localhost/owncloud/index.php', form: {
-                                    'user': cData.data.ownCloudAdminUser,
-                                    'password': cData.data.ownCloudAdminPassword,
-                                    'timezone-offset': 3,
-                                    'requesttoken': token
-                            }}, function(err, httpResponse, body){
-                                    request('http://localhost/owncloud/index.php/settings/users', function (error, response, body) {
-                                            var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
-                                            request.post({
-                                                    url:'http://localhost/owncloud/index.php/settings/ajax/createuser.php', 
-                                                    form: {
-                                                            'username': usr,
-                                                            'password': pwd,
-                                                            'groups': ''
-                                                    },
-                                                    headers: {
-                                                            'requesttoken': token
-                                                    }
-                                            }, function(err, httpResponse, body){
-                                                    console.log(JSON.parse(body));
-                                            });
-                                    });
+                            return;
+                        var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
+                        request.post({
+                            url: 'http://localhost/owncloud/index.php', form: {
+                                'user': cData.data.ownCloudAdminUser,
+                                'password': cData.data.ownCloudAdminPassword,
+                                'timezone-offset': 3,
+                                'requesttoken': token
+                            }
+                        }, function (err, httpResponse, body) {
+                            request('http://localhost/owncloud/index.php/settings/users', function (error, response, body) {
+                                var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
+                                request.post({
+                                    url: 'http://localhost/owncloud/index.php/settings/ajax/createuser.php',
+                                    form: {
+                                        'username': usr,
+                                        'password': pwd,
+                                        'groups': ''
+                                    },
+                                    headers: {
+                                        'requesttoken': token
+                                    }
+                                }, function (err, httpResponse, body) {
+                                    console.log(JSON.parse(body));
+                                });
                             });
+                        });
                     });
+                }catch(e){
+                    console.log(e);
+                }
             }else{
                     var rdata = {
                         "data":{
