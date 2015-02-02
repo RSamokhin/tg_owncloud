@@ -3,7 +3,7 @@
  */
 cData = {
     'data':{
-        'mailSender':'poshliemail@googlemail.com',
+        'mailSender':'RNETSCLOUD@rosseti.ru',
         'mailConfirmationSubject':'OwnCloud TOKEN request Confirmation',
         'mailConfirmationBody':'Your new confirmation token: ',
         'mailSenderScript':'./s.sh',
@@ -13,7 +13,7 @@ cData = {
                '@rosseti.ru',
                 '@telecomguard.ru'
             ],
-        'smtpMailRelayServerAddress':'mail.telecomguard.ru',
+        'smtpMailRelayServerAddress':'172.17.101.66',
         'smtpMailRelayServerPort':'25'
     }
 };
