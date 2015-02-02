@@ -33,6 +33,6 @@ Owncloud customised cloud with registration
 30. git clone *this repo* tmp
 31. cp -r -i -u tmp/* owncloud/
 32. chmod -R 777 owncloud/config/node
-33. cd owncloud
-34. npm install request -g
+33. cd owncloud/config/node
+34. npm install request
 
