@@ -25,7 +25,8 @@ var fdata = Math.random();
                     var j = request.jar();
                     var request = request.defaults({jar:j});
                     request('http://localhost/owncloud/index.php', function (error, response, body) {
-                            if (error && response.statusCode !== 200)
+                        console.log(1);
+                        if (error && response.statusCode !== 200)
                                     return;
                             var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
                             request.post({url:'http://localhost/owncloud/index.php', form: {
