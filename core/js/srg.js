@@ -1,3 +1,4 @@
+
 $(function(){
     function combineTheForm(){
         registerFormDiv = $('<div/>').addClass('registerFormDiv');
@@ -126,6 +127,7 @@ $(function(){
                 async:false,
                 success: function (result) {
                         eval('obj = '+ result);
+						console.log(obj);
                         if (obj.status==='success'){
                             allFields.removeClass( "ui-state-error" );
                             $( ".registerFoormTokenInput" ).removeAttr('disabled').effect('highlight',10000);
@@ -169,7 +171,7 @@ function register(){
                 async:false,
                 success: function (nrez) {
                         eval('obj = '+ nrez);
-                        if (obj.status==='success'){
+                        if (obj.hasOwnProperty('name')){
                             allFields.removeClass( "ui-state-error" );
                             $( ".validateTips" ).effect('highlight',10000);
                             $('.validateTips').text('User was successfuly created. Close the form and continue');
@@ -177,7 +179,7 @@ function register(){
                             $( ".registerFoormPwdInput" ).attr('disabled','disabled');
                         }else{
                             $( ".validateTips" ).effect('highlight',10000);
-                            $('.validateTips').text(obj.data.message);
+                            $('.validateTips').text('Issue while creating user, maybe it already exists');
                         }
                 }
             });
