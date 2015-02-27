@@ -50,11 +50,9 @@ script('core', [
 			<img class="svg" id="password-icon" src="<?php print_unescaped(image_path('', 'actions/password.svg')); ?>" alt=""/>
 		</p>
 
-		<?php if (isset($_['invalidpassword']) && ($_['invalidpassword'])): ?>
 		<span id="recoverPassword" class="recoverPassword" style="margin: 20px;color: wheat;cursor: pointer;" >
 			<?php p($l->t('Forgot your password? Reset it!')); ?>
 		</span>
-		<?php endif; ?>
 		<div>
 			<input class="register-button" value="Регистрация" disabled="disabled"/>
 		</div>
@@ -64,7 +62,6 @@ script('core', [
 		<input type="submit" id="submit" class="login primary" value="<?php p($l->t('Log in')); ?>" disabled="disabled"/>
 	</fieldset>
 </form>
-
 <?php if (!empty($_['alt_login'])) { ?>
 <form id="alternative-logins">
 	<fieldset>
@@ -76,9 +73,5 @@ script('core', [
 		</ul>
 	</fieldset>
 </form>
-
 <?php }
-
-
-
 
