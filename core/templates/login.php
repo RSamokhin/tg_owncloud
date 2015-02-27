@@ -1,4 +1,11 @@
 <?php /** @var $l OC_L10N */ ?>
+<?php
+vendor_script('jsTimezoneDetect/jstz');
+script('core', [
+	'visitortimezone',
+	'lostpassword'
+]);
+?>
 
 <!--[if IE 8]><style>input[type="checkbox"]{padding:0;}</style><![endif]-->
 <form method="post" name="login">
@@ -12,8 +19,14 @@
 				<small><?php p($l->t('Please contact your administrator.')); ?></small>
 			</div>
 		<?php endif; ?>
+		<?php foreach($_['messages'] as $message): ?>
+			<div class="warning">
+				<?php p($message); ?><br>
+			</div>
+		<?php endforeach; ?>
 		<p id="message" class="hidden">
-			<img class="float-spinner" src="<?php p(\OCP\Util::imagePath('core', 'loading-dark.gif'));?>"/>
+			<img class="float-spinner" alt=""
+				src="<?php p(\OCP\Util::imagePath('core', 'loading-dark.gif'));?>" />
 			<span id="messageText"></span>
 			<!-- the following div ensures that the spinner is always inside the #message div -->
 			<div style="clear: both;"></div>
@@ -42,14 +55,11 @@
 			<?php p($l->t('Forgot your password? Reset it!')); ?>
 		</span>
 		<?php endif; ?>
-		
-                
-                
-                <div>
-		<input class="register-button" value="Регистрация" disabled="disabled"/>
+		<div>
+			<input class="register-button" value="Регистрация" disabled="disabled"/>
 		</div>
-		
 		<input type="hidden" name="timezone-offset" id="timezone-offset"/>
+		<input type="hidden" name="timezone" id="timezone"/>
 		<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>" />
 		<input type="submit" id="submit" class="login primary" value="<?php p($l->t('Log in')); ?>" disabled="disabled"/>
 	</fieldset>
@@ -67,8 +77,8 @@
 	</fieldset>
 </form>
 
-<?php } ?>
+<?php }
 
-<?php
-OCP\Util::addscript('core', 'visitortimezone');
-OCP\Util::addScript('core', 'lostpassword');
+
+
+
