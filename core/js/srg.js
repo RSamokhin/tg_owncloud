@@ -1,6 +1,46 @@
-
 $(function(){
-    function combineTheForm(){
+	if (location.pathname.split('/').length===3){
+		checkLegal();
+	}
+	function checkLegal(){
+		var legalFormDiv = $('<div/>').addClass('legalFormDiv').attr({
+			title:'Лицензионное соглашение.'
+		}).css({
+			'text-align':'justify'
+		});
+		var legalDiv = $('<div/>').addClass('legalDiv').css({
+			width:'100%',
+			height:'250px'
+		}).appendTo(legalFormDiv);
+		var legalSection = $('<section/>').addClass('legalSection').css({
+			wordWrap:'break-word',
+			marginLeft: '10px'
+		}).html('<ol>'+
+			'<li>Запрещена передача информации ограниченного распространения (коммерческая тайна, служебная тайна, ДСП, конфиденциально, персональные данные, инсайдерская информация и т.п.)</li>'+
+			'<li>Запрещена передача учетных данных пользователей</li>'+
+			'<li>Запрещена передача нелицензионного ПО и нелегально скопированных файлов</li>'+
+			'<li>Запрещена передача вредоносного программного обеспечения</li>'+
+			'<li>В условиях использования необходима информация для пользователей о сроках хранения выложенных в Сервисе файлов, квотах на дисковое пространство и размер выкладываемых файлов.</li>'+
+			'</ol>').appendTo(legalDiv);
+		legalFormDiv.dialog({
+            width: 400,
+            modal: true,
+            resizable:false,
+			closeOnEscape: false,
+			open: function(event, ui) { 
+				$(".ui-dialog-titlebar-close").hide();
+				$('.ui-dialog-title').css({
+					'text-align':'left'
+				})
+			},
+            buttons: {
+				'Прочитал и согласен': function() {
+					legalFormDiv.dialog( "close" );
+				}
+            }
+        });	
+	};
+	function combineTheForm(){
         registerFormDiv = $('<div/>').addClass('registerFormDiv');
         validateTips = $('<p/>').addClass('validateTips').html('All form fields are required.').css({
             'border': '1px solid transparent',
