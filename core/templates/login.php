@@ -33,7 +33,8 @@ script('core', [
 		</p>
 		<p class="grouptop">
 			<input type="text" name="user" id="user"
-				placeholder="<?php p($l->t('Username')); ?>"
+
+				placeholder="E-mail"
 				value="<?php p($_['username']); ?>"
 				<?php p($_['user_autofocus'] ? 'autofocus' : ''); ?>
 				autocomplete="on" autocapitalize="off" autocorrect="off" required />

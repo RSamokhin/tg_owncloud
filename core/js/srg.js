@@ -1,16 +1,20 @@
+$('body').css({
+	background:'#4B82BC'
+});
 $(function(){
-	if (location.pathname.split('/').length===3){
+	if ($('form[name="login"]').length){
+
 		checkLegal();
 	}
 	function checkLegal(){
 		var legalFormDiv = $('<div/>').addClass('legalFormDiv').attr({
-			title:'Лицензионное соглашение.'
+			title:'Пользовательское соглашение.'
 		}).css({
 			'text-align':'justify'
 		});
 		var legalDiv = $('<div/>').addClass('legalDiv').css({
 			width:'100%',
-			height:'250px'
+			height:'270px'
 		}).appendTo(legalFormDiv);
 		var legalSection = $('<section/>').addClass('legalSection').css({
 			wordWrap:'break-word',
