@@ -37,4 +37,5 @@ Owncloud customised cloud with registration
 34. npm install request
 35. configure https for apache: http://help.ubuntu.ru/wiki/apache_%D0%B8_https    
 36. add Documents Plugin
+37.  nano /var/www/owncloud/config/config.php ('forcessl' => true, 'default_language' => 'ru')
 
