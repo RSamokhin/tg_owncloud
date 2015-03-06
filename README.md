@@ -35,4 +35,6 @@ Owncloud customised cloud with registration
 32. chmod -R 777 owncloud/config/node
 33. cd owncloud/config/node
 34. npm install request
+35. configure https for apache: http://help.ubuntu.ru/wiki/apache_%D0%B8_https    
+36. add Documents Plugin
 
