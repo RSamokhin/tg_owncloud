@@ -21,23 +21,24 @@ var fdata = Math.random();
       }
             fdata=data.trim();
             if (fdata===chk){
+					process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
                     var request = require('request');
                     var j = request.jar();
                     var request = request.defaults({jar:j});
-                    request('http://localhost/owncloud/index.php', function (error, response, body) {
+                    request('https://localhost/owncloud/index.php', function (error, response, body) {
                             if (error && response.statusCode !== 200)
                                     return;
                             var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
-                            request.post({url:'http://localhost/owncloud/index.php', form: {
+                            request.post({url:'https://localhost/owncloud/index.php', form: {
                                     'user': cData.data.ownCloudAdminUser,
                                     'password': cData.data.ownCloudAdminPassword,
                                     'timezone-offset': 3,
                                     'requesttoken': token
                             }}, function(err, httpResponse, body){
-                                    request('http://localhost/owncloud/index.php/settings/users', function (error, response, body) {
+                                    request('https://localhost/owncloud/index.php/settings/users', function (error, response, body) {
                                             var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
                                             request.post({
-                                                    url:'http://localhost/owncloud/index.php/settings/users/changepassword', 
+                                                    url:'https://localhost/owncloud/index.php/settings/users/changepassword', 
                                                     form: {
                                                             'username': usr,
                                                             'password': pwd

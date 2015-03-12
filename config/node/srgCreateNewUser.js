@@ -22,25 +22,35 @@ var fdata = Math.random();
             fdata=data.trim();
             if (fdata===chk){
                 try {
+					
+					process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
                     var request = require('request');
+					
                     var j = request.jar();
                     var request = request.defaults({jar: j});
-                    request('http://localhost/owncloud/index.php', function (error, response, body) {
-                        if (error && response.statusCode !== 200)
+					
+                    request({
+							url:'https://localhost/owncloud/index.php',
+							rejectUnhauthorized : false 
+						},
+						function (error, response, body) {
+						if (error && response.statusCode !== 200)
                             return;
                         var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
+						
                         request.post({
-                            url: 'http://localhost/owncloud/index.php', form: {
+                            url: 'https://localhost/owncloud/index.php', form: {
                                 'user': cData.data.ownCloudAdminUser,
                                 'password': cData.data.ownCloudAdminPassword,
                                 'timezone-offset': 3,
                                 'requesttoken': token
                             }
                         }, function (err, httpResponse, body) {
-                            request('http://localhost/owncloud/index.php/settings/users', function (error, response, body) {
-                                var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
+							
+                            request('https://localhost/owncloud/index.php/settings/users', function (error, response, body) {
+							   var token = /data-requesttoken="([^"]+)"/.exec(body)[1];
                                 request.post({
-                                    url: 'http://localhost/owncloud/index.php/settings/ajax/createuser.php',
+                                    url: 'https://localhost/owncloud/index.php/settings/users/users',
                                     form: {
                                         'username': usr,
                                         'password': pwd,
