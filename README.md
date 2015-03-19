@@ -38,4 +38,7 @@ Owncloud customised cloud with registration
 35. configure https for apache: http://help.ubuntu.ru/wiki/apache_%D0%B8_https    
 36. add Documents Plugin
 37.  nano /var/www/owncloud/config/config.php ('forcessl' => true, 'default_language' => 'ru')
-
+38.  apt-get install clamav clamav-daemon
+39.  freshclam
+40.  /etc/init.d/clamav-daemon start
+41.  crontab -e (->  47  *  *   *    *  /usr/bin/freshclam --quiet) 
