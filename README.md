@@ -42,3 +42,6 @@ Owncloud customised cloud with registration
 39.  freshclam
 40.  /etc/init.d/clamav-daemon start
 41.  crontab -e (->  47  *  *   *    *  /usr/bin/freshclam --quiet) 
+42.  cd /var/www/owncloud/apps && wget https://apps.owncloud.com/CONTENT/content-files/157439-files_antivirus.tar.gz
+43.  tar zxvf 157439-files_antivirus.tar.gz 
+44.  Enable and setup antivirus in web interface
