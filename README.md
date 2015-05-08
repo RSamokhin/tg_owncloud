@@ -21,11 +21,11 @@ Owncloud customised cloud with registration
 17. cd /var/www/html/ 
 18. wget https://download.owncloud.org/community/owncloud-8.0.3.tar.bz2
 19. tar -xvf owncloud-8.0.3.tar.bz2
-20. chown -R www-data:www-data /var/www/html/owncloud/ 
 21. rm owncloud-8.0.3.tar.bz2
 22. rm index.html
 23. mv owncloud/* ./
 24. rm -r owncloud/
+20. chown -R www-data:www-data /var/www/html/owncloud/ 
 23. on http://ip/ set admin user and db connection settings
 24. apt-get install git
 25. curl -sL https://deb.nodesourse.com/setup | bash -
