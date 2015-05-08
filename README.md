@@ -38,6 +38,8 @@ Owncloud customised cloud with registration
 22. chown -R www-data:www-data html/apps/
 23. on http://ip/ set admin user and db connection settings
 -----------------------------------
+## SNAPSHOTED!!!
+-----------------------------------
 
 # SSL config
 37.  nano /var/www/owncloud/config/config.php ('forcessl' => true, 'default_language' => 'ru')
