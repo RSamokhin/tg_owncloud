@@ -1,6 +1,6 @@
 Owncloud customised cloud with registration
 ========
-
+# Installation process
 1. allow root login: nano /etc/ssh/sshd_config (comment PermitRootLogin) 
 2.  /etc/init.d/ssh restart
 1. apt-get update
@@ -37,6 +37,13 @@ Owncloud customised cloud with registration
 21. chown -R www-data:www-data html/config/
 22. chown -R www-data:www-data html/apps/
 23. on http://ip/ set admin user and db connection settings
+-----------------------------------
+
+# SSL config
+37.  nano /var/www/owncloud/config/config.php ('forcessl' => true, 'default_language' => 'ru')
+-----------------------------------
+
+# Git copy paste
 24. apt-get install git
 25. curl -sL https://deb.nodesourse.com/setup | bash -
 26. apt-get install nodejs
@@ -50,7 +57,7 @@ Owncloud customised cloud with registration
 34. npm install request
 35. configure https for apache: http://help.ubuntu.ru/wiki/apache_%D0%B8_https    
 36. add Documents Plugin
-37.  nano /var/www/owncloud/config/config.php ('forcessl' => true, 'default_language' => 'ru')
+
 38.  apt-get install clamav clamav-daemon
 39.  freshclam
 40.  /etc/init.d/clamav-daemon start
@@ -59,3 +66,4 @@ Owncloud customised cloud with registration
 43.  tar zxvf 157439-files_antivirus.tar.gz 
 44.  Enable and setup antivirus in web interface
 45.  crontab -e (-> *   */2  *   *    *  clamscan -r --remove /var/www/owncloud/data)
+----------------------------------
