@@ -16,7 +16,8 @@ Owncloud customised cloud with registration
 13. ntpdate -bs 0.ru.pool.ntp.org 
 14. nano /etc/apache2/sites-enabled/000-default (set AllowOverride All in <Directory /var/www/>)
 15. service apache2 restart 
-16. nano /etc/php5/apache2/php.ini (mysql.default_socket -> /var/run/mysqld/mysqld.sock;mysql.cache_size -> 4000;upload_max_filesize -> 1024M;post_max_size -> 1024M;memory_limit = 1024M; default_charset=UTF-8 )
+16. nano /etc/php5/apache2/php.ini (mysql.default_socket -> /var/run/mysqld/mysqld.sock;mysql.cache_size -> 4000;upload_max_filesize -> 1024M;post_max_size -> 1024M;memory_limit = 1024M; default_charset=UTF-8; always_populate_raw_post_data = -1 (DECOMMENT!!!) )
+17. /etc/init.d/apache2 stop; /etc/init.d/apache2 start; 
 17. cd /var/www/html/ 
 18. wget https://download.owncloud.org/community/owncloud-8.0.3.tar.bz2
 19. tar -xvf owncloud-8.0.3.tar.bz2
