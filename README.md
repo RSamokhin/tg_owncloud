@@ -1,6 +1,8 @@
 Owncloud customised cloud with registration
 ========
 
+1. allow root login: nano /etc/ssh/sshd_config (comment PermitRootLogin) 
+2.  /etc/init.d/ssh restart
 1. apt-get update
 2. apt-get upgrade
 3. apt-get install apache2 php5 php5-common php5-gd php5-intl php5-mcrypt php5-cli php5-ldap php5-sqlite curl libcurl3 libcurl4-openssl-dev php5-curl php-apc php5-mysql ffmpeg 
