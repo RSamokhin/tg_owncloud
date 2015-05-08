@@ -26,6 +26,7 @@ Owncloud customised cloud with registration
 22. mv owncloud/* ./
 23. rm -r owncloud/
 24. chown -R www-data:www-data /var/www/html/
+25. mv data ../
 23. on http://ip/ set admin user and db connection settings
 24. apt-get install git
 25. curl -sL https://deb.nodesourse.com/setup | bash -
