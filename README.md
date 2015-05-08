@@ -1,6 +1,8 @@
 Owncloud customised cloud with registration
 ========
 
+1. allow root login: nano /etc/ssh/sshd_config (comment PermitRootLogin) 
+2.  /etc/init.d/ssh restart
 1. apt-get update
 2. apt-get upgrade
 3. apt-get install apache2 php5 php5-common php5-gd php5-intl php5-mcrypt php5-cli php5-ldap php5-sqlite curl libcurl3 libcurl4-openssl-dev php5-curl php-apc php5-mysql ffmpeg 
@@ -26,7 +28,14 @@ Owncloud customised cloud with registration
 22. mv owncloud/* ./
 23. rm -r owncloud/
 24. chown -R www-data:www-data /var/www/html/
-25. mv data ../
+21. rm owncloud-8.0.3.tar.bz2
+22. rm index.html
+23. mv owncloud/* ./ mv owncloud/.htaccess ./; mv owncloud/.user.ini ./
+24. rm -r owncloud/
+25. mv html/data/ ./data
+20. chown -R www-data:www-data data/
+21. chown -R www-data:www-data html/config/
+22. chown -R www-data:www-data html/apps/
 23. on http://ip/ set admin user and db connection settings
 24. apt-get install git
 25. curl -sL https://deb.nodesourse.com/setup | bash -
