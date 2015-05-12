@@ -15,7 +15,7 @@ for(i = 0 ; i < cData.data.allowedEmailDomains.length;i++){
 if (allowedEmailDomain){
     var fs = require('fs');
     try{
-            fs.unlinkSync('/var/www/owncloud/config/node/tmpdir/'+usr);
+            fs.unlinkSync('/var/www/tmpdir/'+usr);
     }catch(e){
 
     }finally{
@@ -23,7 +23,7 @@ if (allowedEmailDomain){
             try{
                     var newId = makeid();
                     fs = require('fs');
-                    fs.writeFileSync('/var/www/owncloud/config/node/tmpdir/'+usr, newId);
+                    fs.writeFileSync('/var/www/tmpdir/'+usr, newId);
                     var sESR = require('/var/www/owncloud/config/node/srgExternalScriptsRunner.js');
                     
                     var exec = require('child_process').exec,

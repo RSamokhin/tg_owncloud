@@ -47,7 +47,7 @@
 						<?php p($theme->getName()); ?>
 					</h1>
 				</div>-->
-				<img src='/owncloud/core/img/ic.siteIcon.png' style='height: 36px;'/>
+				<img src='/core/img/ic.siteIcon.png' style='height: 36px;'/>
 			</a>
 
 			<a href="#" class="menutoggle" tabindex="2" style='padding-top: 14px;'>

@@ -6,7 +6,7 @@ $CONFIG = array (
   'trusted_domains' => 
   array (
     0 => '193.125.96.140',
-	1 => 'exfile.rosseti.ru',
+	1 => 'exfile.***.ru',
   ),
   'datadirectory' => '/var/www/data',
   'overwrite.cli.url' => 'http://193.125.96.140',
@@ -18,4 +18,6 @@ $CONFIG = array (
   'dbuser' => 'owncloud',
   'dbpassword' => '***',
   'installed' => true,
+  'forcessl' => false,
+  'default_language' => 'ru',
 );

@@ -4,17 +4,17 @@
 
     switch ($scriptName) {
         case 'srgGenerateNewKeyForUser':
-            $msg = runScript("nodejs /var/www/owncloud/config/node/srgGenerateNewKeyForUser.js ".$scriptData);
+            $msg = runScript("nodejs /var/www/html/config/node/srgGenerateNewKeyForUser.js ".$scriptData);
             echo $msg;
             break;
         case 'srgCreateNewUser':
             $params = (strtr($scriptData, ",", " "));
-            $msg = runScript("nodejs /var/www/owncloud/config/node/srgCreateNewUser.js ".$params);
+            $msg = runScript("nodejs /var/www/html/config/node/srgCreateNewUser.js ".$params);
             echo $msg;
             break;
         case 'srgChangeUsersPwd':
             $params = (strtr($scriptData, ",", " "));
-            $msg = runScript("nodejs /var/www/owncloud/config/node/srgChangeUsersPwd.js ".$params);
+            $msg = runScript("nodejs /var/www/html/config/node/srgChangeUsersPwd.js ".$params);
             echo $msg;
             break;
     }

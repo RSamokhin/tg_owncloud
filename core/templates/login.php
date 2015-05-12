@@ -33,8 +33,7 @@ script('core', [
 		</p>
 		<p class="grouptop">
 			<input type="text" name="user" id="user"
-
-				placeholder="E-mail"
+				placeholder="<?php p($l->t('Username')); ?>"
 				value="<?php p($_['username']); ?>"
 				<?php p($_['user_autofocus'] ? 'autofocus' : ''); ?>
 				autocomplete="on" autocapitalize="off" autocorrect="off" required />
@@ -52,8 +51,9 @@ script('core', [
 		</p>
 
 		<span id="recoverPassword" class="recoverPassword" style="margin: 20px;color: wheat;cursor: pointer;" >
-			<?php p($l->t('Forgot your password? Reset it!')); ?>
+		<?php p($l->t('Forgot your password? Reset it!')); ?>
 		</span>
+		
 		<div>
 			<input class="register-button" value="Регистрация" disabled="disabled"/>
 		</div>

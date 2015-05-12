@@ -32,7 +32,7 @@
 					<header>
 					
 						<div id="header" style = 'padding-top: 150px !important;'>
-							<img src='/owncloud/core/img/ic.siteIcon.png'/>
+							<img src='/core/img/ic.siteIcon.png'/>
 							<!--<div class="logo svg">
 								<h1 class="hidden-visually">
 									<?php p($theme->getName()); ?>

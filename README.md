@@ -54,8 +54,11 @@ Owncloud customised cloud with registration
 29. tar -zcvf oc_backup.tar.gz owncloud/
 30. git clone *this repo* tmp
 31. cp -r -i -u tmp/* owncloud/
-32. chmod -R 777 owncloud/config/node
+32. cd /var/www/
+33. mkdir tmpdir
+34. chown -R www-data:www-data tmpdir/
 33. cd owncloud/config/node
+
 34. npm install request
 35. configure https for apache: http://help.ubuntu.ru/wiki/apache_%D0%B8_https    
 36. add Documents Plugin
