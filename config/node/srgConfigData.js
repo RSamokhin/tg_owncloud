@@ -11,7 +11,8 @@ cData = {
         'ownCloudAdminPassword':'***',
         'allowedEmailDomains':[
                '@rosseti.ru',
-                '@telecomguard.ru'
+               '@telecomguard.ru',
+		'@it-energy.ru'		
             ],
         'smtpMailRelayServerAddress':'172.17.101.66',
         'smtpMailRelayServerPort':'25'
