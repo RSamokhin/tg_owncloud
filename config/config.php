@@ -5,11 +5,11 @@ $CONFIG = array (
   'secret' => '***',
   'trusted_domains' => 
   array (
-    0 => '193.125.96.140',
+    0 => 'ipaddress',
 	1 => 'exfile.***.ru',
   ),
   'datadirectory' => '/var/www/data',
-  'overwrite.cli.url' => 'http://193.125.96.140',
+  'overwrite.cli.url' => 'http://ipaddress',
   'dbtype' => 'mysql',
   'version' => '8.0.3.4',
   'dbname' => 'owncloud',
