@@ -20,4 +20,5 @@ $CONFIG = array (
   'installed' => true,
   'forcessl' => false,
   'default_language' => 'ru',
+  'logtimezone' => 'Europe/Moscow', 
 );
