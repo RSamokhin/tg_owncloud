@@ -1,0 +1,67 @@
+allow root login: nano /etc/ssh/sshd_config (comment PermitRootLogin)
+/etc/init.d/ssh restart
+apt-get update
+apt-get upgrade
+apt-get install apache2 php5 php5-common php5-gd php5-intl php5-mcrypt php5-cli php5-ldap php5-sqlite curl libcurl3 libcurl4-openssl-dev php5-curl php-apc php5-mysql 
+apt-get install mysql-client mysql-server
+mysql_secure_installation
+(new root password, remove anonymous users, allow root login remotely, remove test db, reload privilege tables)
+mysql -u root -p
+create database owncloud;
+create user 'owncloud'@'localhost' IDENTIFIED BY '***';
+GRANT ALL ON owncloud.* to 'owncloud'@'localhost';
+quit
+apt-get install ntp ntpdate
+nano /etc/ntp.conf (allservers set to -> server 0.ru.pool.ntp.org iburst dynamic)
+ntpdate -bs 0.ru.pool.ntp.org
+nano /etc/apache2/apache2.conf (set AllowOverride All in <Directory /var/www/>)
+service apache2 restart
+nano /etc/php5/apache2/php.ini (mysql.default_socket -> /var/run/mysqld/mysqld.sock;mysql.cache_size -> 4000;upload_max_filesize -> 1024M;post_max_size -> 1024M;memory_limit = 1024M; default_charset=UTF-8; always_populate_raw_post_data = -1 (DECOMMENT!!!) )
+/etc/init.d/apache2 stop; /etc/init.d/apache2 start;
+cd /var/www/html/
+wget https://download.owncloud.org/community/owncloud-8.0.3.tar.bz2
+tar -xvf owncloud-8.0.3.tar.bz2
+rm owncloud-8.0.3.tar.bz2
+rm index.html
+mv owncloud/* ./ mv owncloud/.htaccess ./; mv owncloud/.user.ini ./
+rm -r owncloud/
+mv html/data/ ./data
+chown -R www-data:www-data data/
+chown -R www-data:www-data html/config/
+chown -R www-data:www-data html/apps/
+
+
+on http://ip/ set admin user and db connection settings
+
+
+SNAPSHOTED!!!
+
+
+Git copy paste
+apt-get install git
+curl -sL https://deb.nodesource.com/setup | bash -
+apt-get install -y nodejs
+apt-get install build-essential
+cd /var/www/
+tar -zcvf oc_backup.tar.gz html/
+git clone this repo tmp
+cp -r -i -u tmp/* html/
+cd /var/www/
+mkdir tmpdir
+chown -R www-data:www-data tmpdir/
+cd html/config/node
+npm install request
+
+
+configure https for apache: http://help.ubuntu.ru/wiki/apache_%D0%B8_https
+add Documents Plugin
+
+apt-get install clamav clamav-daemon
+/etc/init.d/clamav-freshclam stop
+freshclam
+/etc/init.d/clamav-daemon start
+crontab -e (-> 47 * * * * /usr/bin/freshclam --quiet)
+cd /var/www/html/apps && wget https://apps.owncloud.com/CONTENT/content-files/157439-files_antivirus.tar.gz
+tar zxvf 157439-files_antivirus.tar.gz
+Enable and setup antivirus in web interface (Executable)
+crontab -e (-> * */2 * * * clamscan -r --remove /var/www/data)
