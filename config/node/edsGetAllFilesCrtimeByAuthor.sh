@@ -1,0 +1,2 @@
+ myVar="$(ls -d /var/www/data/*/ | rev | cut -d '/' -f2 | rev)"
+ for i in $myVar ; do echo $i; find /var/www/data/$i/* -exec bash -c 'if [ -f "$@" ]; then echo "$@";getcrtime "$@"; fi;' _ {} \;; echo; done > /var/www/data/out.txt

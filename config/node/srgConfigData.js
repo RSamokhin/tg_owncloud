@@ -16,5 +16,8 @@ cData = {
             ],
         'smtpMailRelayServerAddress':'172.17.101.66',
         'smtpMailRelayServerPort':'25'
+		'cypherKey':'**Insert a key here**',
+		'daysTillNotifications':'5',
+		'daysTillDeletion':'7'
     }
 };
