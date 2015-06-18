@@ -1,6 +1,12 @@
 $('body').css({
 	background:'#4B82BC'
 });
+$('#body-login').css({
+	background:'#4B82BC'
+});
+$('#body-public #header').css({
+	background:'#4B82BC'
+});
 $(function(){
 	if ($('form[name="login"]').length){
 
@@ -27,7 +33,7 @@ $(function(){
 			'<li>В условиях использования необходима информация для пользователей о сроках хранения выложенных в Сервисе файлов, квотах на дисковое пространство и размер выкладываемых файлов.</li>'+
 			'</ol>').appendTo(legalDiv);
 		legalFormDiv.dialog({
-            width: 400,
+            width: 320,
             modal: true,
             resizable:false,
 			closeOnEscape: false,
@@ -119,7 +125,7 @@ $(function(){
         });
         
         registerFormDiv.dialog({
-            width: 400,
+            width: 320,
             modal: true,
             resizable:false,
             buttons: {
@@ -140,7 +146,7 @@ $(function(){
             'title':'Register new user'
         });
         registerFormDiv.dialog({
-            width: 400,
+            width: 320,
             modal: true,
             resizable:false,
             buttons: {
